@@ -476,7 +476,7 @@ function stubContext(value) {
   const requests = []
   const ctx = {
     tools: { register: (def) => defs.push(def) },
-    workflows: {
+    workflowEngine: {
       start: (request) => {
         requests.push(request)
         return {
@@ -502,7 +502,7 @@ test('④ 工具注册与输出 schema 编译通过', async () => {
   const def = defs[0]
   assert.strictEqual(def.name, 'deep_research')
   assert.strictEqual(mod.name, 'dsh-deep-research')
-  assert.deepEqual(plain(mod.inject), ['tools', 'workflows'], 'inject 声明 tools + workflows')
+  assert.deepEqual(plain(mod.inject), ['tools', 'workflowEngine'], 'inject 声明 tools + workflowEngine')
   assert.doesNotThrow(() => assertSupportedJsonSchema(def.output.schema), 'output.schema 应在引擎受支持子集内')
   assert.doesNotThrow(() => assertSupportedJsonSchema(def.parameters), 'parameters 应编译为受支持的对象 schema')
   const valid = { ok: true, report: '# r', review: '审阅' }

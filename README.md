@@ -116,7 +116,7 @@ dsh plugin --profile <profile> remove @dsh-external/dsh-deep-research
 
 ## Profile 兼容性
 
-本插件运行时依赖 DSH 官方 workflow 引擎（`ctx.workflows`，peer：`@deepseek-ai/dsh-workflow`）。
+本插件运行时依赖 DSH 官方 workflow 引擎（`ctx.workflowEngine`，peer：`@deepseek-ai/dsh-workflow`）。
 `@deepseek-ai/dsh-tools` 与 `@deepseek-ai/dsh-workflow` 声明为 DSH 0.2（含 `0.2.0-rc.2`）。
 请把它安装进**提供 workflows provider 的 Profile**（如 tui/headless 组合）；若 Profile 未声明
 该 provider（如部分 Web Profile 组合），Loader 会保持 pending——此时请先在 DSH Hub 登记
