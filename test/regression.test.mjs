@@ -536,6 +536,7 @@ test('⑤ 参数校验：空 topic / depth>3 抛错，不进入 workflows.start'
     { question: 'Q1' },
     { question: 'Q2' },
   ], 'questions 解析为数组透传')
+  assert.ok(!Object.hasOwn(req.args.questions[0], 'keywords'), '问题对象不能带 undefined 的 keywords')
   assert.strictEqual(req.args.depth, 1)
   assert.strictEqual(req.args.synthesize, true, 'synthesize 默认 true')
   assert.strictEqual(req.args.review, false, 'review 默认 false')
